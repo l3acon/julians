@@ -2,6 +2,7 @@ CC := g++
 CFLAGS := -g -O3  -Wall #-v  
 ALLDEPS := 
 SRCDIR := src
+INCDIR := inc
 BUILDDIR := build
 
 #these might not necessarily be right
@@ -43,7 +44,7 @@ SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 HEADERS := $(shell find $(SRCDIR) -type f $(HDRPAT))
 ALLDEP += $(HEADERS)
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-INC := -I include -I$(LIBDIR)
+INC := -I $(INCDIR) -I$(LIBDIR)
 
 all: $(OBJECTS)
 	@echo "$(CC) $(CFLAGS) $(LIB) $(FW) $(INC) -o build/out $(OBJECTS)"; $(CC) $(CFLAGS) $(LIB) $(FW) $(INC) -o build/out $(OBJECTS)

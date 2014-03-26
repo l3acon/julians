@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-#include <windows.h>
 #define MAX_GPU_COUNT 8
 
 class ZSort
